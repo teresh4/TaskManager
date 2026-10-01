@@ -45,21 +45,6 @@ spring.datasource.password=
 spring.jpa.hibernate.ddl-auto=update
 server.port=8081
 ```
-
-Для подключения другой базы данных задайте собственные URL, драйвер, имя пользователя и пароль в `application.properties` или передайте их через переменные окружения/параметры запуска. Не храните реальные пароли в публичном репозитории.
-
-Пример отдельного локального файла `application-local.properties` без реальных паролей:
-
-```properties
-spring.datasource.url=${DB_URL:jdbc:h2:file:./data/taskdb}
-spring.datasource.driver-class-name=${DB_DRIVER:org.h2.Driver}
-spring.datasource.username=${DB_USERNAME:sa}
-spring.datasource.password=${DB_PASSWORD:}
-server.port=${SERVER_PORT:8081}
-```
-
-Создайте файл в корне проекта и загрузите его при запуске, задав переменную окружения `SPRING_CONFIG_ADDITIONAL_LOCATION=optional:file:./application-local.properties`. Для PostgreSQL передайте соответствующие значения `DB_URL`, `DB_DRIVER`, `DB_USERNAME` и `DB_PASSWORD`. Файл с локальными настройками и паролями не добавляйте в репозиторий.
-
 ## API
 
 Базовый URL: `http://localhost:8081/api/tasks`
